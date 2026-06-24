@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<article class="post-container">
+
+  <!-- ========== POST HEADER ========== -->
+  <header class="post-header">
+    <div class="post-meta-top">
+      <a href="{{ '/blog/' | relative_url }}" class="back-link">← Back to Blog</a>
+      {% if page.categories %}
+        <span class="post-category">{{ page.categories | first }}</span>
+      {% endif %}
+    </div>
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    <div class="post-meta">
+      <span class="post-date">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        {{ page.date | date: "%B %d, %Y" }}
+      </span>
+      <span class="post-author">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        {{ page.author | default: site.author.name }}
+      </span>
+      {% if page.read_time %}
+        <span class="post-read-time">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          {{ page.read_time }} min read
+        </span>
+      {% endif %}
+    </div>
+
+    {% if page.tags %}
+      <div class="post-tags-header">
+        {% for tag in page.tags %}
+          <span class="post-tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="post-divider"></div>
+
+  <!-- ========== POST BODY ========== -->
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="post-divider"></div>
+
+  <!-- ========== POST FOOTER ========== -->
+  <footer class="post-footer">
+
+    <!-- Tags -->
+    {% if page.tags %}
+      <div class="post-footer-tags">
+        <span class="tags-label">Tags:</span>
+        {% for tag in page.tags %}
+          <span class="post-tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <!-- Mentor Reference -->
+    <div class="mentor-card">
+      <p>
+        This post is part of my learning journey at UET Faisalabad.
+        Some of these experiences were shaped by guidance from
+        <a href="{{ site.mentor.linkedin }}" target="_blank" rel="noopener">Dr. Bilal Ahmad</a>,
+        whose research in AI and ML you can explore on his
+        <a href="{{ site.mentor.google_scholar }}" target="_blank" rel="noopener">Google Scholar profile</a>.
+      </p>
+    </div>
+
+    <!-- Navigation between posts -->
+    <div class="post-navigation">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="post-nav-link prev">
+          <span class="nav-direction">← Previous</span>
+          <span class="nav-title">{{ page.previous.title }}</span>
+        </a>
+      {% else %}
+        <span></span>
+      {% endif %}
+
+      {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="post-nav-link next">
+          <span class="nav-direction">Next →</span>
+          <span class="nav-title">{{ page.next.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Back to blog -->
+    <div class="back-to-blog">
+      <a href="{{ '/blog/' | relative_url }}" class="btn-o">← All Posts</a>
+    </div>
+
+  </footer>
+
+</article>
