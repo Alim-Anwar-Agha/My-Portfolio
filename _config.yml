@@ -1,0 +1,112 @@
+# =============================================
+# Jekyll Configuration — Alim Anwar Portfolio
+# University of Engineering & Technology, Faisalabad
+# =============================================
+
+# --- Site Identity ---
+title: "Alim Anwar | Computer Engineering Student"
+name: "Alim Anwar"
+description: >-
+  Personal portfolio and learning blog of Alim Anwar, BS Computer Engineering
+  student at UET Faisalabad. Documenting my journey through Programming
+  Fundamentals, Database Systems, OOP, Machine Learning, and beyond.
+
+url: "https://Alim-Anwar-Agha.github.io"
+baseurl: "/My-Portfolio"
+
+# --- Author Info ---
+author:
+  name: "Alim Anwar"
+  email: "your@email.com"
+  github: "Alim-Anwar-Agha"
+  linkedin: "alim-anwar"
+  instagram: "@alim.anwar"
+  university: "University of Engineering & Technology, Faisalabad"
+  reg_no: "2025-BSCPE-168"
+
+# --- Teacher / Mentor Reference ---
+mentor:
+  name: "Dr. Bilal Ahmad"
+  title: "Professor, UET Lahore — Faisalabad Campus"
+  linkedin: "https://www.linkedin.com/in/drbilalphd/"
+  google_scholar: "https://scholar.google.com.au/citations?user=8nZ0jVkAAAAJ&hl=en"
+  facebook: "https://www.facebook.com/Dr.BilalAhm"
+  expertise: "AI, Machine Learning, Deep Learning, Medical Dataset Research"
+
+# --- Courses ---
+courses:
+  - name: "Programming Fundamentals"
+    code: "PF"
+    instructor: "Dr. Bilal Ahmad"
+  - name: "Database Systems"
+    code: "DB"
+    instructor: "Dr. Bilal Ahmad"
+  - name: "Object-Oriented Programming"
+    code: "OOP"
+    instructor: "Miss Rimsha Chauhdary"
+
+# --- Blog / Posts Settings ---
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# --- Build Settings ---
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# --- Plugins ---
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# --- Default Front Matter ---
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Alim Anwar"
+      comments: true
+      show_date: true
+
+# --- Hashtags / SEO ---
+hashtags:
+  - "#MLwithDrBilalAhmad"
+  - "#DrBilalAhmad"
+  - "#MLProject"
+
+# --- Social / SEO ---
+twitter:
+  username: alim_anwar
+social:
+  name: Alim Anwar
+  links:
+    - https://github.com/Alim-Anwar-Agha
+    - https://www.linkedin.com/in/alim-anwar
+
+# --- Collections (optional, for projects) ---
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+# --- Exclude from build ---
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/
+  - README.md
+  - "*.sh"
+
+# --- Include ---
+include:
+  - _pages
