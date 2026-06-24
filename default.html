@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- SEO Tag Plugin -->
+  {% seo %}
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <!-- Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav>
+    <div class="nav-logo">
+      <a href="{{ '/' | relative_url }}">Alim Anwar</a>
+    </div>
+
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+      <li><a href="{{ '/' | relative_url }}#education">Education</a></li>
+      <li><a href="{{ '/' | relative_url }}#experience">Experience</a></li>
+      <li><a href="{{ '/' | relative_url }}#projects">Projects</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>Designed &amp; built by Alim Anwar &nbsp;·&nbsp; UET Faisalabad &nbsp;·&nbsp; 2026</p>
+    <p>
+      <a href="{{ site.mentor.linkedin }}" target="_blank" rel="noopener">#MLwithDrBilalAhmad</a>
+      &nbsp;·&nbsp;
+      <span>#DrBilalAhmad</span>
+      &nbsp;·&nbsp;
+      <span>#MLProject</span>
+    </p>
+    <p style="margin-top:8px; font-size:12px;">
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      &nbsp;·&nbsp;
+      <a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a>
+    </p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Mobile nav close on link click
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
