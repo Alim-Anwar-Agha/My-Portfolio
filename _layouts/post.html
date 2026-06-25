@@ -53,15 +53,11 @@ layout: default
   <!-- ========== POST FOOTER ========== -->
   <footer class="post-footer">
 
-    <!-- Tags -->
-    {% if page.tags %}
-      <div class="post-footer-tags">
-        <span class="tags-label">Tags:</span>
-        {% for tag in page.tags %}
-          <span class="post-tag">#{{ tag }}</span>
-        {% endfor %}
-      </div>
-    {% endif %}
+   {% if page.tags %}
+  <div class="post-tags-header">
+    <span class="post-tag">#{{ page.tags[0] }}</span>
+  </div>
+{% endif %}
 
     <!-- Mentor Reference -->
     <div class="mentor-card">
