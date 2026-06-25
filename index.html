@@ -349,36 +349,23 @@
 <section id="blogs">
   <div class="section-label">My thoughts</div>
   <h2>Blog</h2>
-  <div class="grid2">
+  <div class="blog-grid">
+  {% for post in site.posts limit:4 %}
     <div class="blog-card">
-      <div class="blog-date">April 10, 2026</div>
-      <h3>My First Semester at University Of Engineering And Technology, Faisalbad: A Computer Engineering Journey</h3>
-      <p>Reflecting on the whirlwind of my first semester — database labs, OOP nights, exam chaos, and what it taught me about real engineering.</p>
-      <div class="btags"><span class="btag">#StudentLife</span><span class="btag">#DrBilalAhmad</span><span class="btag">#MLProject</span></div>
-      <a href="/2026/04/10/my-first-semester-experience.html" class="read-more">Read post →</a>
+      <p class="blog-date">{{ post.date | date: "%B %d, %Y" }}</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      {% if post.tags %}
+        <div class="btags">
+          {% for tag in post.tags %}
+            <span class="btag">#{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <a href="{{ post.url | relative_url }}" class="read-more">Read post →</a>
     </div>
-    <div class="blog-card">
-      <div class="blog-date">Coming Soon</div>
-      <h3>Understanding Database Normalization: My Experience with 1NF to 3NF</h3>
-      <p>How hands-on lab work with MySQL finally made normalization click — and what it means for real-world data design.</p>
-      <div class="btags"><span class="btag">#DatabaseSystems</span><span class="btag">#DrBilalAhmad</span><span class="btag">#MLwithDrBilalAhmad</span></div>
-      <a href="#" class="read-more">Coming soon →</a>
-    </div>
-    <div class="blog-card">
-      <div class="blog-date">Coming Soon</div>
-      <h3>OOP in C#: When Polymorphism Finally Made Sense</h3>
-      <p>The lab that made abstract classes and interfaces click — and why struggle is the best teacher in software engineering.</p>
-      <div class="btags"><span class="btag">#OOP</span><span class="btag">#CSharp</span><span class="btag">#DrBilalAhmad</span></div>
-      <a href="#" class="read-more">Coming soon →</a>
-    </div>
-    <div class="blog-card">
-      <div class="blog-date">Coming Soon</div>
-      <h3>Why Every CS Student Should Build a Public Portfolio</h3>
-      <p>My teacher's advice changed how I think about digital presence. Here's why documenting your learning journey matters.</p>
-      <div class="btags"><span class="btag">#GitHub</span><span class="btag">#Portfolio</span><span class="btag">#MLProject</span></div>
-      <a href="#" class="read-more">Coming soon →</a>
-    </div>
-  </div>
+  {% endfor %}
+</div>
 </section>
 <div class="divider"></div>
 
