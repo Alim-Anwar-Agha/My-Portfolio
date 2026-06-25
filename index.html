@@ -352,7 +352,7 @@
   <div class="section-label">My thoughts</div>
   <h2>Blog</h2>
   <div class="blog-grid">
-  {% for post in site.posts}
+  {% for post in site.posts limit:15 %}
     <div class="blog-card">
       <p class="blog-date">{{ post.date | date: "%B %d, %Y" }}</p>
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
