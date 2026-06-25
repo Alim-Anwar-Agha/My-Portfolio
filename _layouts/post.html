@@ -33,12 +33,11 @@ layout: default
     </div>
 
     {% if page.tags %}
-      <div class="post-tags-header">
-        {% for tag in page.tags %}
-          <span class="post-tag">#{{ tag }}</span>
-        {% endfor %}
-      </div>
-    {% endif %}
+  <div class="post-footer-tags">
+    <span class="tags-label">Tags:</span>
+    <span class="post-tag">#{{ page.tags[0] }}</span>
+  </div>
+{% endif %}
   </header>
 
   <div class="post-divider"></div>
